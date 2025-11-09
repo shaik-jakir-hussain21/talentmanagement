@@ -1,37 +1,20 @@
 package com.talentsupply.talentmanagement.entity;
 
-/**
- * Simple POJO representing a Talent.
- */
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Talent {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-    public Talent() {}
-
-    public Talent(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Talent{id=" + id + ", name='" + name + "'}";
-    }
+    private String skills;
+    private double experience;
+    private String currentStatus;
+    private String interviewFeedback;
 }
