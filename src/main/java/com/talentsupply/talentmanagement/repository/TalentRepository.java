@@ -1,9 +1,13 @@
 package com.talentsupply.talentmanagement.repository;
 
-/**
- * Placeholder repository interface for Talent persistence.
- * Replace with Spring Data interfaces (e.g. JpaRepository) as needed.
- */
-public interface TalentRepository {
-    // TODO: define repository methods or extend Spring Data interfaces
+import com.talentsupply.talentmanagement.entity.Talent;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TalentRepository extends JpaRepository<Talent, Long> {
+    List<Talent> findBySkillsContainingIgnoreCase(String skill);
+    List<Talent> findByCurrentStatusIgnoreCase(String status);
 }
